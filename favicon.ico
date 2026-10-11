@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <!-- CSP: 只允许同源脚本和样式，阻断注入资源加载 -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' wss: https:; font-src 'self' data:; frame-ancestors 'none';" />
+    <!-- 强制HTTPS -->
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains" />
+    <!-- 禁止嗅探MIME类型，防止XSS变种 -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <!-- 禁止嵌入iframe，防止点击劫持 -->
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <!-- 去除referrer信息，防止来源泄露 -->
+    <meta name="referrer" content="no-referrer" />
+    <!-- 去掉生成器标记，遮蔽框架指纹 -->
+    <title></title>
+    <script>
+      // 早期bot拦截，在Vue加载前执行
+      ;(function() {
+        var ua = navigator.userAgent || ''
+        var isBot = /bot|crawl|spider|curl|wget|python|java|go-http|scrapy|headless/i.test(ua)
+        var isWebDriver = !!navigator.webdriver
+        if (isBot || isWebDriver) {
+          document.documentElement.style.display = 'none'
+          window.location.replace('about:blank')
+        }
+      })()
+    </script>
+    <script type="module" crossorigin src="/assets/index-bc88b991.js"></script>
+    <link rel="stylesheet" href="/assets/index-ff4806dc.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    
+  </body>
+</html>
