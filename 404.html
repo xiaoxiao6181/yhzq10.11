@@ -24,8 +24,9 @@
         var alias = {
           'zh-cn': 'zh-cn', 'zh_cn': 'zh-cn', 'zh-CN': 'zh-cn', 'zh_CN': 'zh-cn',
           zh: 'zh-cn', cn: 'zh-cn', 'zh-hans': 'zh-cn', 'zh-Hans': 'zh-cn',
-          'zh-tw': 'zh-tw', 'zh_tw': 'zh-tw', 'zh-TW': 'zh-tw', 'zh_TW': 'zh-tw',
-          tw: 'zh-tw', 'zh-hant': 'zh-tw', 'zh-Hant': 'zh-tw',
+          'zh-tw': 'zh-hk', 'zh_tw': 'zh-hk', 'zh-TW': 'zh-hk', 'zh_TW': 'zh-hk',
+          'zh-hk': 'zh-hk', 'zh_hk': 'zh-hk', 'zh-HK': 'zh-hk', 'zh_HK': 'zh-hk',
+          tw: 'zh-hk', hk: 'zh-hk', 'zh-hant': 'zh-hk', 'zh-Hant': 'zh-hk',
           'en-us': 'en-us', 'en_us': 'en-us', 'en-US': 'en-us', 'en_US': 'en-us',
           en: 'en-us', 'en-gb': 'en-us', 'en-GB': 'en-us'
         }
@@ -41,95 +42,10 @@
         } catch (e) {}
       })()
     </script>
-    <script type="module" crossorigin src="/assets/index-bc88b991.js?v=1791742024124"></script>
-    <link rel="stylesheet" href="/assets/index-ff4806dc.css?v=1791742024124">
+    <script type="module" crossorigin src="/assets/index-bc88b991.js?v=1791795274827"></script>
+    <link rel="stylesheet" href="/assets/index-ff4806dc.css?v=1791794780884">
   </head>
   <body>
     <div id="app"></div>
-  <script>/* imperative-carousel-driver-html */
-(function(){
-  if (window.__yhCarouselBooted) return;
-  window.__yhCarouselBooted = true;
-  var imgs = [], idx = 0, timer = null, root = null;
-  function ensureRoot(){
-    root = document.getElementById('yh-carousel') || document.querySelector('.hero-slides');
-    return root;
-  }
-  function paint(){
-    if (!ensureRoot() || !imgs.length) return;
-    var url = imgs[idx];
-    var dots = '';
-    for (var i=0;i<imgs.length;i++){
-      dots += '<span data-yh-i="'+i+'" style="width:8px;height:8px;border-radius:50%;display:inline-block;margin:0 4px;cursor:pointer;background:'+(i===idx?'#fff':'rgba(255,255,255,.45)')+';"></span>';
-    }
-    root.setAttribute('data-yh','1');
-    root.style.cssText = 'position:relative;overflow:hidden;border-radius:16px;min-height:140px;';
-    root.innerHTML = ''
-      + '<img alt="banner" src="'+url+'" style="display:block;width:100%;height:auto;border-radius:16px;"/>'
-      + '<div style="position:absolute;left:50%;bottom:10px;transform:translateX(-50%);z-index:30;display:flex;align-items:center;">'+dots+'</div>';
-    var list = root.querySelectorAll('[data-yh-i]');
-    for (var j=0;j<list.length;j++){
-      list[j].onclick = (function(n){ return function(ev){ ev.stopPropagation(); idx=n; paint(); arm(); }; })(+list[j].getAttribute('data-yh-i'));
-    }
-  }
-  function arm(){
-    if (timer) clearInterval(timer);
-    if (imgs.length > 1) timer = setInterval(function(){ idx = (idx+1)%imgs.length; paint(); }, 2500);
-  }
-  function normalize(u){
-    if (!u) return '';
-    u = String(u);
-    if (u.indexOf('http') === 0) return u;
-    if (u.charAt(0) !== '/') u = '/' + u;
-    return 'https://api.yh377.shop' + u;
-  }
-  function load(){
-    var url = '/api/index/api/getSlides';
-    fetch(url).then(function(r){return r.json()}).then(function(res){
-      var list = (res && res.data) || [];
-      var next = [];
-      for (var i=0;i<list.length;i++){
-        var u = normalize(list[i].img || list[i].value || '');
-        if (u) next.push(u);
-      }
-      if (!next.length) return;
-      // only restart if list changed
-      var same = next.length===imgs.length && next.every(function(x,i){return x===imgs[i]});
-      imgs = next;
-      if (!same) { idx = 0; }
-      paint(); arm();
-    }).catch(function(){});
-  }
-  function bindSwipe(){
-    if (!ensureRoot()) return;
-    var tx = 0;
-    root.ontouchstart = function(e){ tx = (e.changedTouches && e.changedTouches[0] || {}).clientX || 0; };
-    root.ontouchend = function(e){
-      var dx = ((e.changedTouches && e.changedTouches[0] || {}).clientX || 0) - tx;
-      if (Math.abs(dx) > 40 && imgs.length > 1){
-        idx = dx < 0 ? (idx+1)%imgs.length : (idx-1+imgs.length)%imgs.length;
-        paint(); arm();
-      }
-    };
-  }
-  var seen = false;
-  function tick(){
-    if (ensureRoot()){
-      if (!seen) { seen = true; load(); }
-      if (root.getAttribute('data-yh') !== '1' || !root.querySelector('img')) {
-        if (imgs.length) paint(); else load();
-      }
-      bindSwipe();
-    } else {
-      seen = false;
-    }
-  }
-  load();
-  setInterval(tick, 400);
-  setInterval(load, 15000);
-  document.addEventListener('click', function(){ setTimeout(tick, 50); }, true);
-  window.addEventListener('hashchange', function(){ seen=false; setTimeout(tick, 50); setTimeout(load, 100); });
-})();
-</script>
-</body>
+  </body>
 </html>
