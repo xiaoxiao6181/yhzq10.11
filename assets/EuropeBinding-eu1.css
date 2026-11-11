@@ -1,0 +1,18 @@
+/* Europe account binding - scope data-v-euacc001 */
+.mobile-app[data-v-euacc001]{min-height:100vh;background:linear-gradient(135deg,#1E90FF 0%,#4682B4 100%);padding-bottom:80px}
+.binding-content[data-v-euacc001]{padding:20px 16px;max-width:600px;margin:0 auto}
+.info-card[data-v-euacc001]{background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-radius:16px;padding:20px;margin-bottom:24px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}
+.info-header[data-v-euacc001]{display:flex;align-items:center;gap:16px}
+.crypto-icon[data-v-euacc001]{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#1E90FF,#4682B4);display:flex;align-items:center;justify-content:center;color:#fff}
+.info-text h3[data-v-euacc001]{font-size:1.2rem;font-weight:600;color:#2c3e50;margin-bottom:4px}
+.info-text p[data-v-euacc001]{font-size:.9rem;color:#6c757d;margin:0}
+.address-form[data-v-euacc001]{background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-radius:16px;padding:24px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}
+.form-group[data-v-euacc001]{margin-bottom:20px}
+.form-label[data-v-euacc001]{display:block;font-size:.9rem;font-weight:600;color:#2c3e50;margin-bottom:8px}
+.form-input[data-v-euacc001]{width:100%;padding:14px 16px;border:2px solid rgba(102,126,234,.2);border-radius:12px;font-size:.9rem;background:#ffffff;color:#2c3e50;transition:all .3s ease;box-sizing:border-box}
+.form-input[data-v-euacc001]:focus{outline:none;border-color:#1e90ff;box-shadow:0 0 0 3px #667eea1a}
+.form-input[data-v-euacc001]::placeholder{color:#6c757d;opacity:.8}
+.submit-section[data-v-euacc001]{margin-top:28px}
+.submit-btn[data-v-euacc001]{width:100%;background:linear-gradient(135deg,#1E90FF 0%,#4682B4 100%);color:#fff;border:none;border-radius:16px;padding:18px 24px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .3s ease;box-shadow:0 8px 25px #667eea4d}
+.submit-btn[data-v-euacc001]:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 12px 35px #667eea66}
+.submit-btn[data-v-euacc001]:disabled{opacity:.6;cursor:not-allowed;transform:none}
